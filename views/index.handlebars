@@ -1,0 +1,39 @@
+
+<h1>EETDABEGHER</h1>
+
+<h2>BURGERS ON A PLATTER</h2>
+
+<div>
+  {{#each burgers}}
+    {{#unless this.devoured}}
+     <div>
+       <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+         <div>{{this.name}}</div>
+          <button data-id="{{this.id}}" type="submit">Devour It!!</button>
+       </form>
+     </div>
+      {{!-- {{> burger devoured=false}} --}}
+    {{/unless}}
+  {{/each}}
+</div>
+<h2>BURGERS IN YOUR TUMMY</h2>
+
+<div>
+  {{#each burgers}}
+    {{#if this.devoured}}
+      <div>
+        {{this.name}}
+      </div>
+    {{/if}}
+  {{/each}}
+</div>
+
+<h2>Throw a Burger on the Grill</h2>
+<div>
+  <form action="/burgers" method="POST">
+      <label for="ca">What Burger:</label>
+      <input type="text" id="ca" name="name">
+</div>
+
+  <button type="submit">Cook it up!</button>
+</form>
